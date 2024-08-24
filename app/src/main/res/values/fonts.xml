@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <font name="InterRegular" path="fonts/inter_regular.ttf"/>
+    <font name="InterItalic" path="fonts/inter_italic.ttf"/>
+    <font name="InterBold" path="fonts/inter_bold.ttf"/>
+    <font name="AnekMalayalamRegular" path="fonts/anek_malayalam_regular.ttf"/>
+</resources>
