@@ -1,5 +1,7 @@
 package com.example.whereismybus
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -337,7 +339,7 @@ class MainActivity : ComponentActivity() {
                             .fillMaxWidth()
                             .padding(start = 20.dp, end = 20.dp)
                     )
-                    //Bus("AVM","MALAYATTOOR KOTHAMANGALAM","LIMITED STOP ORDINARY")
+                    Bus(this@MainActivity,"16305","AVM","MALAYATTOOR KOTHAMANGALAM","LIMITED STOP ORDINARY")
                 }
             }
         }
@@ -359,7 +361,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Bus(operator:String,route:String,category:String) {
+fun Bus(classPass:Context, busNumber: String, operator:String,route:String,category:String) {
     Box(modifier = Modifier
         .padding(20.dp)
         .clip(RoundedCornerShape(10.dp))
@@ -421,7 +423,7 @@ fun Bus(operator:String,route:String,category:String) {
                 )
             }
             Button(
-                onClick = {  },
+                onClick = { continueTracking(classPass,busNumber) },
                 colors = ButtonDefaults.buttonColors(
                     contentColor = Spruce,
                     containerColor = Linen
@@ -444,4 +446,10 @@ fun Bus(operator:String,route:String,category:String) {
             }
         }
     }
+}
+
+fun continueTracking(classPass: Context,busNumber: String) {
+    val intent = Intent(classPass,Track::class.java)
+    intent.putExtra("busNumber",busNumber)
+    classPass.startActivity(intent)
 }
